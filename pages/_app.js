@@ -1,12 +1,8 @@
-import { GeistProvider, CssBaseline } from "@geist-ui/react"
-import "../styles/index.css"
+import "inter-ui/inter.css"
+import "../styles/global.css"
 
 const App = ({ Component, pageProps }) => {
-  return (
-    <GeistProvider>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </GeistProvider>
-  )
+  return <Component {...pageProps} />
 }
+
 export default App
