@@ -1,0 +1,38 @@
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.inktrap {
+  font-size: 23vw;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.spacing-sm {
+  padding: calc(56px / 3) 0;
+}
+
+.spacing-md {
+  padding: calc(56px / 2) 0;
+}
+
+.spacing-lg {
+  padding: calc(56px) 0;
+}
+
+@media screen and (min-width: 650px) {
+  .inktrap {
+    font-size: 8rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .inktrap {
+    font-size: 10rem;
+  }
+}
