@@ -1,6 +1,6 @@
 import { useState } from "react"
+import { supabase } from "../utils/supabaseClient"
 import Link from "next/link"
-import { sanityClient } from "../lib/sanity"
 
 // Components
 import HomeHero from "../components/HomeHero"
@@ -18,7 +18,8 @@ const ErrorMessage = ({ message }) => (
 
 export default function Home({ posts, error }) {
   const [search, setSearch] = useState("")
-  const dataSet = posts.filter((post) => post.langage.toLowerCase().includes(search.toLowerCase()))
+  const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
+  console.log(posts)
 
   return (
     <section className="">
@@ -31,16 +32,13 @@ export default function Home({ posts, error }) {
   )
 }
 
-export const getServerSideProps = async () => {
-  const query = '*[ _type == "post"] | order(langage asc){_id, langage, code}'
+export async function getServerSideProps() {
   try {
-    const posts = await sanityClient.fetch(query)
-    if (!posts || (posts && !posts.length > 0)) {
-      throw new Error("No data could be fetched")
-    }
+    let { data: posts, error } = await supabase.from("posts").select()
+    if (!posts) throw new Error(error)
     return {
       props: {
-        posts,
+        posts: posts,
         error: null,
       },
     }
@@ -48,7 +46,7 @@ export const getServerSideProps = async () => {
     return {
       props: {
         posts: [],
-        error: "Posts could not be fetch",
+        error: error.message,
       },
     }
   }

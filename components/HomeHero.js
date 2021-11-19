@@ -14,7 +14,7 @@ export default function HomeHero() {
         <p>
           The example program in that book prints{" "}
           <span className="text-highlight-purple font-semibold">
-            {`"`}hello, world{`"`}
+            {`"`}Hello, World{`"`}
           </span>
           , and was inherited from a 1974 Bell Laboratories internal memorandum by Brian Kernighan, Programming in C: A
           Tutorial
