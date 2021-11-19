@@ -8,10 +8,12 @@ import HomeHero from "../components/HomeHero"
 import CardList from "../components/card/CardList"
 import SearchInput from "../components/SearchInput"
 import ErrorMessage from "../components/error/ErrorMessage"
+import NavToggle from "../components/navigation/NavToggle"
 
 export default function Home({ posts, error }) {
   const [search, setSearch] = useState("")
   const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
+  const [isActive, setIsActive] = useState(false)
 
   return (
     <>
@@ -24,6 +26,7 @@ export default function Home({ posts, error }) {
         />
         <meta name="robots" content="index, follow" />
       </Head>
+      <NavToggle isActive={isActive} setIsActive={setIsActive} />
       <section id="homepage">
         <div className="container">
           <HomeHero />

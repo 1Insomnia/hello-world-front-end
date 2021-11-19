@@ -17,6 +17,50 @@
 }
 
 @layer components {
+  .nav-toggle {
+    height: 48px;
+    width: 48px;
+    position: fixed;
+    top: 16px;
+    right: 10px;
+  }
+
+  .nav-toggle__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .nav-toggle__inner::before,
+  .nav-toggle__inner::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 4px;
+    background-color: #010101;
+    position: absolute;
+    transition: all 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .nav-toggle__inner::before {
+    transform: translateY(5px);
+  }
+  .nav-toggle__inner::after {
+    transform: translateY(-5px);
+  }
+
+  .active.nav-toggle__inner::before {
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  .active.nav-toggle__inner::after {
+    transform: translateY(0) rotate(45deg);
+  }
+
   .inktrap {
     font-size: 23vw;
     line-height: 1;
