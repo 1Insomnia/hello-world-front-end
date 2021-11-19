@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 
-export default function errorMessage({ message }) {
+export default function ErrorMessage({ message }) {
   const router = useRouter()
 
   const handleClick = (e) => {
