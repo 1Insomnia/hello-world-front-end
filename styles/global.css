@@ -26,6 +26,42 @@
     text-transform: capitalize;
   }
 
+  .btn-primary {
+    box-sizing: border-box;
+    line-height: 1;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: calc(0.984375 * 16px);
+    user-select: none;
+    outline: none;
+    text-transform: capitalize;
+    /* Flex props */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    gap: 4px;
+    transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms, border 200ms ease 0ms, color 200ms ease 0ms;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background-color: #f81ce5;
+    cursor: pointer;
+    pointer-events: auto;
+    /* Box */
+    min-width: min-content;
+    width: 180px;
+    height: calc(2.8125 * 16px);
+    padding: 0 calc(1.29375 * 16px) 0 calc(1.29375 * 16px);
+    margin: calc(0.28125 * 16px) calc(0.28125 * 16px) calc(0.28125 * 16px) calc(0.28125 * 16px);
+    border: 1 px solid #f81ce5;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
+  }
+
+  .btn-primary > span {
+    display: block;
+  }
+
   @media screen and (min-width: 768px) {
     .inktrap {
       font-size: 8rem;

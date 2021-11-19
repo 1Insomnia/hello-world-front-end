@@ -1,14 +1,17 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
-  purge: [],
-  // purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     // Base colors
     colors: {
       foreground: "#000",
-      background: "#fff",
+      background: {
+        light: "#fff",
+        DEFAULT: "#fafafa",
+      },
+      purple: "#f81ce5",
       // Success
       success: {
         lighter: "#d3e5ff",
@@ -74,7 +77,13 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
+      mono: ["IBM Plex Mono", ...defaultTheme.fontFamily.mono],
+    },
+    boxShadow: {
+      sm: "0 5px 10px rgba(0, 0, 0, 0.12)",
+      md: "0 8px 30px rgba(0, 0, 0, 0.12)",
+      lg: "0 30px 60px rgba(0, 0, 0, 0.12)",
     },
     extend: {
       maxWidth: {

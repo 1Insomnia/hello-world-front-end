@@ -6,26 +6,17 @@ import Link from "next/link"
 import HomeHero from "../components/HomeHero"
 import CardList from "../components/card/CardList"
 import SearchInput from "../components/SearchInput"
-
-const ErrorMessage = ({ message }) => (
-  <div className=" text-highlight-purple py-10 text-center">
-    <div className="text-lg font-semibold mb-4">{message}</div>
-    <Link href="/">
-      <a>Try reloading the page</a>
-    </Link>
-  </div>
-)
+import ErrorMessage from "../components/error/ErrorMessage"
 
 export default function Home({ posts, error }) {
   const [search, setSearch] = useState("")
   const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
-  console.log(posts)
 
   return (
     <section className="">
       <div className="container">
         <HomeHero />
-        <SearchInput search={search} setSearch={setSearch} />
+        <SearchInput setSearch={setSearch} />
         {!error ? <CardList posts={dataSet} /> : <ErrorMessage message={error} />}
       </div>
     </section>
@@ -35,11 +26,12 @@ export default function Home({ posts, error }) {
 export async function getServerSideProps() {
   try {
     let { data: posts, error } = await supabase.from("posts").select()
-    if (!posts) throw new Error(error)
+    if (!posts) throw new Error("Data could not be fetched")
+    if (posts.length === 0) throw new Error("Data could not be fetched")
     return {
       props: {
         posts: posts,
-        error: null,
+        error: error,
       },
     }
   } catch (error) {

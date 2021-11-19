@@ -1,4 +1,3 @@
-import "inter-ui/inter.css"
 import "../styles/global.css"
 
 const App = ({ Component, pageProps }) => {
