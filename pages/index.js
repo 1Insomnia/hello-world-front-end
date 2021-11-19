@@ -23,7 +23,7 @@ export default function Home({ posts, error }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     let { data: posts, error } = await supabase.from("posts").select()
     if (!posts) throw new Error("Data could not be fetched")
