@@ -9,10 +9,15 @@ export default function ErrorMessage({ message }) {
   }
 
   return (
-    <div className=" text-purple py-10 text-center flex flex-col items-center justify-center bg-error-lighter max-w-900 mx-auto">
-      <div className="text-lg font-semibold mb-4">{message}</div>
+    <div
+      className=" text-purple py-10 text-center flex flex-col items-center justify-center bg-error-lighter max-w-900 mx-auto"
+      aria-label="this section contains an error message"
+    >
+      <div className="text-lg font-semibold mb-4" aria-label="error message">
+        {message}
+      </div>
       <div className="mb-8">Try reloading the page</div>
-      <buttton onClick={handleClick} className="btn-primary">
+      <buttton onClick={handleClick} className="btn-primary" role="button" aria-label="refresh the current page">
         <span>Reload</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"

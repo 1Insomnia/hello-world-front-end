@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { supabase } from "../utils/supabaseClient"
 import Link from "next/link"
+import Head from "next/head"
 
 // Components
 import HomeHero from "../components/HomeHero"
@@ -13,13 +14,24 @@ export default function Home({ posts, error }) {
   const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
 
   return (
-    <section className="">
-      <div className="container">
-        <HomeHero />
-        <SearchInput setSearch={setSearch} />
-        {!error ? <CardList posts={dataSet} /> : <ErrorMessage message={error} />}
-      </div>
-    </section>
+    <>
+      <Head>
+        <title>Hello World - Homepage</title>
+        <meta property="og:title" content="Hello World - Homepage" key="title" />
+        <meta
+          name="description"
+          content="Hello World snippets displayed in many programming langages. If you love programming come checkout some snippets for fun."
+        />
+        <meta name="robots" content="index, follow" />
+      </Head>
+      <section id="homepage">
+        <div className="container">
+          <HomeHero />
+          <SearchInput setSearch={setSearch} />
+          {!error ? <CardList posts={dataSet} /> : <ErrorMessage message={error} />}
+        </div>
+      </section>
+    </>
   )
 }
 
