@@ -5,10 +5,15 @@ import Head from "next/head"
 
 // Components
 import HomeHero from "../components/HomeHero"
+// Card
 import CardList from "../components/card/CardList"
+// Search Input
 import SearchInput from "../components/SearchInput"
-import ErrorMessage from "../components/error/ErrorMessage"
+// Navigation
 import NavToggle from "../components/navigation/NavToggle"
+import Nav from "../components/navigation/Nav"
+// Error
+import ErrorMessage from "../components/error/ErrorMessage"
 
 export default function Home({ posts, error }) {
   const [search, setSearch] = useState("")
@@ -26,6 +31,7 @@ export default function Home({ posts, error }) {
         />
         <meta name="robots" content="index, follow" />
       </Head>
+      <Nav isActive={isActive} setIsActive={setIsActive} />
       <NavToggle isActive={isActive} setIsActive={setIsActive} />
       <section id="homepage">
         <div className="container">
