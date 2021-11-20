@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { supabase } from "../utils/supabaseClient"
-import Link from "next/link"
 import Head from "next/head"
+import useIsScrollingDown from "../hooks/useIsScrollingDown"
 
 // Components
 import HomeHero from "../components/HomeHero"
@@ -19,6 +19,7 @@ export default function Home({ posts, error }) {
   const [search, setSearch] = useState("")
   const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
   const [isNavActive, setIsNavActive] = useState(false)
+  const { isScrollingDown } = useIsScrollingDown()
 
   return (
     <>
@@ -32,7 +33,7 @@ export default function Home({ posts, error }) {
         <meta name="robots" content="index, follow" />
       </Head>
       {isNavActive && <Nav />}
-      <NavToggle isNavActive={isNavActive} setIsNavActive={setIsNavActive} />
+      <NavToggle isNavActive={isNavActive} setIsNavActive={setIsNavActive} isScrollingDown={isScrollingDown} />
       <section id="homepage">
         <div className="container">
           <HomeHero />
