@@ -1,5 +1,6 @@
 import Nav from "./Nav"
 import NavToggle from "./NavToggle"
+import ScrollTopBtn from "./ScrollTopBtn"
 
 export default function Header({ isNavActive, setIsNavActive, isScrollingDown }) {
   return (
@@ -9,11 +10,12 @@ export default function Header({ isNavActive, setIsNavActive, isScrollingDown })
         id="site-header"
         role="navigation"
       >
-        <div className="h-16 container relative">
+        <div className="h-16 container flex items-center justify-between">
+          <NavToggle isNavActive={isNavActive} setIsNavActive={setIsNavActive} />
           <h4 className="logo" aria-label="site name">
             HW!
           </h4>
-          <NavToggle isNavActive={isNavActive} setIsNavActive={setIsNavActive} />
+          <ScrollTopBtn />
         </div>
         {isNavActive && <Nav />}
       </header>

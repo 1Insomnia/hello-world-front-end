@@ -4,7 +4,7 @@
   @import "./components/buttons.css";
 
   .logo {
-    @apply font-bold tracking-tight uppercase absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2;
+    @apply font-bold text-lg tracking-tight uppercase w-12 h-12 flex items-center justify-center;
     z-index: 1000;
   }
 }
