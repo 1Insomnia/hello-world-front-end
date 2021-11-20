@@ -5,14 +5,9 @@ import useIsScrollingDown from "../hooks/useIsScrollingDown"
 
 // Components
 import HomeHero from "../components/HomeHero"
-// Card
 import CardList from "../components/card/CardList"
-// Search Input
 import SearchInput from "../components/SearchInput"
-// Navigation
-import NavToggle from "../components/navigation/NavToggle"
-import Nav from "../components/navigation/Nav"
-// Error
+import Header from "../components/navigation/Header"
 import ErrorMessage from "../components/error/ErrorMessage"
 
 export default function Home({ posts, error }) {
@@ -32,8 +27,7 @@ export default function Home({ posts, error }) {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      {isNavActive && <Nav />}
-      <NavToggle isNavActive={isNavActive} setIsNavActive={setIsNavActive} isScrollingDown={isScrollingDown} />
+      <Header isNavActive={isNavActive} setIsNavActive={setIsNavActive} isScrollingDown={isScrollingDown} />
       <section id="homepage">
         <div className="container">
           <HomeHero />

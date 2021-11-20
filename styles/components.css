@@ -2,4 +2,9 @@
   @import "./components/nav.css";
   @import "./components/typography.css";
   @import "./components/buttons.css";
+
+  .logo {
+    @apply font-bold tracking-tight uppercase absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2;
+    z-index: 1000;
+  }
 }
