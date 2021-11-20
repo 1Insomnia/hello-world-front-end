@@ -1,0 +1,20 @@
+.inktrap {
+  font-size: 23vw;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+  .inktrap {
+    font-size: 8rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .inktrap {
+    font-size: 10rem;
+  }
+}

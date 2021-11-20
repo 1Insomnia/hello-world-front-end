@@ -1,0 +1,12 @@
+@layer base {
+  body {
+    color: #010101;
+    background-color: #fafafa;
+  }
+
+  code {
+    color: #f81ce5;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+  }
+}

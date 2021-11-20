@@ -18,7 +18,7 @@ import ErrorMessage from "../components/error/ErrorMessage"
 export default function Home({ posts, error }) {
   const [search, setSearch] = useState("")
   const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
-  const [isActive, setIsActive] = useState(false)
+  const [isNavActive, setIsNavActive] = useState(false)
 
   return (
     <>
@@ -31,8 +31,8 @@ export default function Home({ posts, error }) {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <Nav isActive={isActive} setIsActive={setIsActive} />
-      <NavToggle isActive={isActive} setIsActive={setIsActive} />
+      {isNavActive && <Nav />}
+      <NavToggle isNavActive={isNavActive} setIsNavActive={setIsNavActive} />
       <section id="homepage">
         <div className="container">
           <HomeHero />
