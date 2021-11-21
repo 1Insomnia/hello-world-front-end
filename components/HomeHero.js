@@ -1,7 +1,7 @@
 export default function HomeHero() {
   return (
     <div className="pt-20 pb-10">
-      <h1 className="inktrap mb-10" aria-label="website name and main title">
+      <h1 className="inktrap mb-10 mt-5" aria-label="website name and main title">
         Hello<span className="text-purple">,</span> World!
       </h1>
       <div

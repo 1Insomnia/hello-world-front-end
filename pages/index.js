@@ -19,9 +19,12 @@ export default function Home({ posts, error, length }) {
     first: 0,
     last: 20,
   })
-  const dataSet = posts
-    .filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
-    .slice(page.first, page.last)
+  console.log(posts)
+
+  let dataSet = []
+  search.trim() !== ""
+    ? (dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase())))
+    : (dataSet = posts.slice(page.first, page.last))
 
   return (
     <>

@@ -1,4 +1,3 @@
-import { data } from "autoprefixer"
 import Link from "next/link"
 
 export default function Paginate({ page, setPage, length }) {
@@ -22,6 +21,14 @@ export default function Paginate({ page, setPage, length }) {
     }
   }
 
+  const handleFirst = (e) => {
+    e.preventDefault()
+    setPage({
+      first: 0,
+      last: 20,
+    })
+  }
+
   return (
     <div className="pt-5 pb-10">
       <div className="flex items-center justify-between">
@@ -37,15 +44,15 @@ export default function Paginate({ page, setPage, length }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             <span className="block">Previous</span>
-            <span className="block text-success">{page.first}</span>
           </a>
         </button>
-        <div className="flex items-center gap-2">
-          <span className="block text-success">{length}</span>
-        </div>
+        {/* <div className="">
+          <button className="block text-success" onClick={handleFirst}>
+            First
+          </button>
+        </div> */}
         <button onClick={handleNext}>
           <a className="text-success flex items-center space-x-2 hover:opacity-80">
-            <span className="block text-success">{page.last}</span>
             <span className="block">Next</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
