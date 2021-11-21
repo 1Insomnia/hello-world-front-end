@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { supabase } from "../utils/supabaseClient"
 import Head from "next/head"
-import useIsScrollingDown from "../hooks/useIsScrollingDown"
+import useIsTop from "../hooks/useIsTop"
 
 // Components
 import HomeHero from "../components/HomeHero"
@@ -9,12 +9,19 @@ import CardList from "../components/card/CardList"
 import SearchInput from "../components/SearchInput"
 import Header from "../components/navigation/Header"
 import ErrorMessage from "../components/error/ErrorMessage"
+import Paginate from "../components/Paginate"
 
-export default function Home({ posts, error }) {
+export default function Home({ posts, error, length }) {
   const [search, setSearch] = useState("")
-  const dataSet = posts.filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
   const [isNavActive, setIsNavActive] = useState(false)
-  const { isScrollingDown } = useIsScrollingDown()
+  const { isTop } = useIsTop()
+  const [page, setPage] = useState({
+    first: 0,
+    last: 20,
+  })
+  const dataSet = posts
+    .filter((post) => post.title.toLowerCase().includes(search.toLowerCase()))
+    .slice(page.first, page.last)
 
   return (
     <>
@@ -27,12 +34,13 @@ export default function Home({ posts, error }) {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <Header isNavActive={isNavActive} setIsNavActive={setIsNavActive} isScrollingDown={isScrollingDown} />
+      <Header isNavActive={isNavActive} setIsNavActive={setIsNavActive} isTop={isTop} />
       <section id="homepage">
         <div className="container">
           <HomeHero />
           <SearchInput setSearch={setSearch} />
           {!error ? <CardList posts={dataSet} /> : <ErrorMessage message={error} />}
+          <Paginate page={page} setPage={setPage} length={length} />
         </div>
       </section>
     </>
@@ -48,6 +56,7 @@ export async function getStaticProps() {
       props: {
         posts: posts,
         error: error,
+        length: posts.length,
       },
     }
   } catch (error) {

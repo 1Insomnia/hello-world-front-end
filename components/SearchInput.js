@@ -25,7 +25,7 @@ export default function SearchInput({ setSearch }) {
           className="outline-none block flex-grow p-4 bg-background-light"
           onChange={handleChange}
           ref={inputRef}
-          type="search"
+          type="text"
           spellCheck="false"
           aria-label="search a hello world snippet by programming langage"
           id="search"

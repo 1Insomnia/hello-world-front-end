@@ -90,6 +90,11 @@ module.exports = {
         "120-ch": "120ch",
         900: "900px",
       },
+      height: {
+        400: "400px",
+        450: "450px",
+        500: "500px",
+      },
     },
   },
   variants: {

@@ -2,11 +2,13 @@ import Nav from "./Nav"
 import NavToggle from "./NavToggle"
 import ScrollTopBtn from "./ScrollTopBtn"
 
-export default function Header({ isNavActive, setIsNavActive, isScrollingDown }) {
+export default function Header({ isNavActive, setIsNavActive, isScrollingDown, isTop }) {
   return (
     <>
       <header
-        className={!isScrollingDown ? "fixed top-0 left-0 w-full bg-background shadow-lg" : "hidden"}
+        className={
+          isTop ? "fixed top-0 left-0 w-full bg-background" : "fixed top-0 left-0 w-full bg-background shadow-lg"
+        }
         id="site-header"
         role="navigation"
       >

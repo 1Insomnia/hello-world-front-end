@@ -1,4 +1,8 @@
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     color: #010101;
     background-color: #fafafa;
