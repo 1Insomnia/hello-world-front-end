@@ -46,11 +46,6 @@ export default function Paginate({ page, setPage, length }) {
             <span className="block">Previous</span>
           </a>
         </button>
-        {/* <div className="">
-          <button className="block text-success" onClick={handleFirst}>
-            First
-          </button>
-        </div> */}
         <button onClick={handleNext}>
           <a className="text-success flex items-center space-x-2 hover:opacity-80">
             <span className="block">Next</span>

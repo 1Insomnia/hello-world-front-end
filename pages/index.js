@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { supabase } from "../utils/supabaseClient"
 import Head from "next/head"
 import useIsTop from "../hooks/useIsTop"
@@ -19,7 +19,6 @@ export default function Home({ posts, error, length }) {
     first: 0,
     last: 20,
   })
-  console.log(posts)
 
   let dataSet = []
   search.trim() !== ""
